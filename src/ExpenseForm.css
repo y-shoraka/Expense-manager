@@ -1,0 +1,80 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.closing-btn {
+    margin-top: 10px;
+    border: none;
+    margin-left: 90vw;
+    color: black;
+    background-color: #F2F5F7;
+
+}
+.displayed{
+    display: block;
+}
+.notDisplayed{
+    display: none;
+   
+}
+.close-btn{
+    bottom: 50px;
+    border-radius: 12px;
+    padding: 10px 14px;
+    min-width: 400px
+}
+form {
+    height: 100vh;
+    text-align: center;
+    background-color: #F2F5F7;
+}
+
+.addExpense {
+    color: #52698A;
+    font-size: 2rem;
+    margin: 15px;
+}
+
+.expense-price input {
+    font-size: 1.5rem;
+    border-radius: 24px;
+    padding: 16px;
+    border: none;
+    text-align: center;
+    min-width: 60vw;
+    margin-bottom: 40px;
+
+}
+
+.name input {
+    color: rgb(85, 80, 80);
+    margin-bottom: 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 16px 0px;
+    border: none;
+    text-align: center;
+    min-width: 60vw;
+}
+
+.category select {
+    color: rgb(85, 80, 80);
+    margin-bottom: 5px;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 14px 20px;
+    border: none;
+    text-align: center;
+    min-width: 60vw;
+}
+
+.date input {
+    color: rgb(85, 80, 80);
+    margin-bottom: 5px;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 14px 0px;
+    border: none;
+    text-align: center;
+    width: 60vw;
+}
