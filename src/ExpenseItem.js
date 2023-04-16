@@ -1,21 +1,24 @@
 import React from "react";
 import "./ExpenseItem.css";
-function ExpenseItem() {
-  let Dates = new Date();
-  let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+function ExpenseItem(props) {
+  let Dates = new Date(props.Date);
+  let Year = Dates.getFullYear();
+  let monthNum = Dates.getMonth();
+  let Day = Dates.getDay();
+  let Months = ["January", "February", "March", "April", "May", "June", "July" , "August" , "September" , "October" , "November"];
 
   return (
     <div className="expenseChart">
       <div className="time">
-        <div className="month">August</div>
-        <div className="yaer">2020</div>
-        <div className="day">14</div>
+        <div className="month">{Months[monthNum+1]}</div>
+        <div className="yaer">{Year}</div>
+        <div className="day">{Day}</div>
       </div>
 
       <div className="expenseName">
-        <div className="category">Category</div>toilet paper
+        <div className="category">{props.Cat}</div>{props.Name}
       </div>
-      <div className="Price">$ 24</div>
+      <div className="Price">$ {props.Amount}</div>
     </div>
   );
 }

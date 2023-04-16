@@ -4,6 +4,7 @@ body {
 
 .expenseChart {
     margin: 0 auto;
+    margin-bottom: 15px;
     display: flex;
     background-color: white;
     justify-content: space-evenly;

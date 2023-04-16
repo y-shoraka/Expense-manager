@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { Avatar } from "@mui/material";
-import ExpenseItem from "./ExpenseItem";
-import userEvent from "@testing-library/user-event";
+import Expenses from "./Expenses";
 const Mainpage = () => {
   let [expenseInput, setExpenseInput] = useState({
     Amount: "",
@@ -11,7 +10,7 @@ const Mainpage = () => {
     Name: "",
     Date: "",
   });
-
+  let [expenseList, setExpenseList] = useState([]);
   const AmountHandler = (event) => {
     setExpenseInput((prevState) => {
       return { ...prevState, Amount: event.target.value };
@@ -27,7 +26,6 @@ const Mainpage = () => {
     setExpenseInput((prevState) => {
       return { ...prevState, Name: event.target.value };
     });
-    console.log(expenseInput)
   };
   const DateHandler = (event) => {
     setExpenseInput((prevState) => {
@@ -45,23 +43,19 @@ const Mainpage = () => {
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    const SubmittedExpense ={
-      Amount: expenseInput.Amount,
-      Category: expenseInput.Category,
-      Name: expenseInput.Name,
-      Date: expenseInput.Date,
-    };
-    console.log(SubmittedExpense)
+    setExpenseList((PrevList) => {
+      return [...PrevList, expenseInput];
+    });
     setExpenseInput({
-        Amount :'' , 
-        Category: '' , 
-        Name : '' , 
-        Date: ''
-    })
+      Amount: "",
+      Category: "",
+      Name: "",
+      Date: "",
+    });
   };
   return (
     <div>
-      <div className="flex flex-row justify-start py-5 align-center">
+      <div className="sticky flex flex-row justify-start py-5 align-center">
         <div className="avatar mx-5">
           <Avatar src="/broken-image.jpg" />
         </div>
@@ -70,21 +64,9 @@ const Mainpage = () => {
           <div>John Doe</div>
         </div>
       </div>
-      <div className="z-0 flex justify-evenly items-center fixed bottom-0 p-5 bg-white w-full rounded-t-3xl	 ">
-        <a href="/">
-          <button>Home</button>
-        </a>
-        <button
-          onClick={openAddExpense}
-          className="transition ease-in-out delay-150 text-3xl hover:scale-110 hover:shadow-xl hover:-translate-y-1 bg-gradient-to-r from-[#1FABE0] via-[#8684F4] via-[#D772DD] to-[#F8917D] rounded-full w-20 h-20 bg-black p-5 text-white text-center"
-        >
-          +
-        </button>
-        <a href="/">
-          <button>Chart</button>
-        </a>
-      </div>
-      <div className={formDisplay}>
+      
+      <Expenses className="snap-y mb-[200px]" list={expenseList} />
+      <div className={`z-50 absolute top-0 ${formDisplay}`}>
         <form
           className="rounded-t-lg z-50 fixed w-full h-screen"
           onSubmit={submitHandler}
@@ -104,7 +86,11 @@ const Mainpage = () => {
             />
           </div>
           <div className="category">
-            <select name="Category" value={expenseInput.Category} onChange={CategoryHandler}>
+            <select
+              name="Category"
+              value={expenseInput.Category}
+              onChange={CategoryHandler}
+            >
               <option
                 selected={true}
                 disabled={true}
@@ -132,7 +118,11 @@ const Mainpage = () => {
             ></input>
           </div>
           <div className="date">
-            <input type="date" value={expenseInput.Date} onChange={DateHandler} />
+            <input
+              type="date"
+              value={expenseInput.Date}
+              onChange={DateHandler}
+            />
           </div>
           <div className="fixed bottom-0 w-full py-4 ">
             <button className="rounded bg-gradient-to-r from-[#1FABE0] via-[#8684F4] via-[#D772DD] to-[#F8917D] py-4 mb-5 w-1/2">
@@ -140,6 +130,20 @@ const Mainpage = () => {
             </button>
           </div>
         </form>
+      </div>
+      <div className=" flex justify-evenly items-center sticky bottom-0 p-4 bg-white w-full rounded-t-3xl mt-5 ">
+        <a href="/">
+          <button>Home</button>
+        </a>
+        <button
+          onClick={openAddExpense}
+          className="transition ease-in-out delay-150 text-3xl hover:scale-110 hover:shadow-xl hover:-translate-y-1 bg-gradient-to-r from-[#1FABE0] via-[#8684F4] via-[#D772DD] to-[#F8917D] rounded-full w-20 h-20 bg-black p-5 text-white text-center"
+        >
+          +
+        </button>
+        <a href="/">
+          <button>Chart</button>
+        </a>
       </div>
     </div>
   );
