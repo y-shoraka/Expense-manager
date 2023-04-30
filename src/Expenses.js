@@ -41,7 +41,7 @@ const Expenses = (props) => {
   return (
     <div>
       <div>
-        <Chart dataPoints= {ChartDatapoint} />
+        <Chart dataPoints= {ChartDatapoint} display={props.ChartDisplay} />
       </div>
       <div className="h-screen">{listedItems}</div>
     </div>

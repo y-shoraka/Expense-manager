@@ -53,6 +53,14 @@ const Mainpage = () => {
       Date: "",
     });
   };
+  let [ChartDisplay, setChartDisplay] = useState("hidden");
+
+  const openChart = (event) => {
+    event.preventDefault();
+    setChartDisplay("block");
+  };
+  const closeChart = (event) =>{event.preventDefault(); 
+  setChartDisplay("hidden")}
   return (
     <div>
       <div className="sticky flex flex-row justify-start py-5 align-center">
@@ -64,8 +72,12 @@ const Mainpage = () => {
           <div>John Doe</div>
         </div>
       </div>
-      
-      <Expenses className="snap-y mb-[200px]" list={expenseList} />
+
+      <Expenses
+        className="snap-y mb-[200px]"
+        list={expenseList}
+        ChartDisplay={ChartDisplay}
+      />
       <div className={`z-50 absolute top-0 ${formDisplay}`}>
         <form
           className="rounded-t-lg z-50 fixed w-full h-screen"
@@ -133,7 +145,9 @@ const Mainpage = () => {
       </div>
       <div className=" flex justify-evenly items-center sticky bottom-0 p-4 bg-white w-full rounded-t-3xl mt-5 ">
         <a href="/">
-          <button>Home</button>
+          <button
+          onClick={closeChart}
+          >Home</button>
         </a>
         <button
           onClick={openAddExpense}
@@ -142,7 +156,7 @@ const Mainpage = () => {
           +
         </button>
         <a href="/">
-          <button>Chart</button>
+          <button onClick={openChart}>Chart</button>
         </a>
       </div>
     </div>
