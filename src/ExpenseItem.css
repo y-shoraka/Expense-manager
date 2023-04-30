@@ -15,6 +15,7 @@ body {
 }
 
 .time {
+    margin-right: 10px;
     border: 1px solid white;
     border-radius: 8px;
     padding: 8px 16px;
@@ -39,6 +40,7 @@ body {
 }
 
 .expenseName {
+    width:80px;
     padding-right: 40%;
     font-size: 1.5rem;
     font-weight: 600;
