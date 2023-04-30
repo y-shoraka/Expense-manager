@@ -6,11 +6,11 @@ function ExpenseItem(props) {
   let monthNum = Dates.getMonth();
   let Day = Dates.getDay();
   let Months = ["January", "February", "March", "April", "May", "June", "July" , "August" , "September" , "October" , "November"];
-
+console.log({Dates})
   return (
     <div className="expenseChart">
       <div className="time">
-        <div className="month">{Months[monthNum+1]}</div>
+        <div className="month">{Months[monthNum]}</div>
         <div className="yaer">{Year}</div>
         <div className="day">{Day}</div>
       </div>
