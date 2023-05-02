@@ -2,7 +2,7 @@ import React from "react";
 import ChartBar from "./ChartBar";
 import Category from "../Category/Category";
 import { useState } from "react";
-import userEvent from "@testing-library/user-event";
+
 
 const Chart = (props) => {
   let Values = props.dataPoints.map((datapoint) => datapoint.value);
@@ -11,7 +11,7 @@ const Chart = (props) => {
     <div
       className={`h-screen w-full fixed top-0 z-40  bg-white  ${props.display}`}
     >
-      <div className="bg-gray-200 flex flex-center justify-evenly mb-4 flex-wrap h-1/2 ">
+      <div className="bg-gray-100 flex flex-center justify-evenly mb-4 flex-wrap h-1/2 ">
         {props.dataPoints.map((dataPoint) => (
           <ChartBar
             key={dataPoint.label}
