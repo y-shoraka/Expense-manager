@@ -43,15 +43,20 @@ const Mainpage = () => {
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    setExpenseList((PrevList) => {
-      return [...PrevList, expenseInput];
-    });
-    setExpenseInput({
-      Amount: "",
-      Category: "",
-      Name: "",
-      Date: "",
-    });
+
+    if (expenseInput.Category === "") {
+      alert("try Again");
+    } else {
+      setExpenseList((PrevList) => {
+        return [...PrevList, expenseInput];
+      });
+      setExpenseInput({
+        Amount: "",
+        Category: "",
+        Name: "",
+        Date: "",
+      });
+    }
   };
   let [ChartDisplay, setChartDisplay] = useState("hidden");
 
@@ -59,8 +64,10 @@ const Mainpage = () => {
     event.preventDefault();
     setChartDisplay("block");
   };
-  const closeChart = (event) =>{event.preventDefault(); 
-  setChartDisplay("hidden")}
+  const closeChart = (event) => {
+    event.preventDefault();
+    setChartDisplay("hidden");
+  };
   return (
     <div>
       <div className="sticky flex flex-row justify-start py-5 align-center">
@@ -145,9 +152,7 @@ const Mainpage = () => {
       </div>
       <div className=" flex justify-evenly items-center sticky bottom-0 p-4 bg-white w-full rounded-t-3xl mt-5 ">
         <a href="/">
-          <button
-          onClick={closeChart}
-          >Home</button>
+          <button onClick={closeChart}>Home</button>
         </a>
         <button
           onClick={openAddExpense}

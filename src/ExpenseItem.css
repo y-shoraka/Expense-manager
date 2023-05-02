@@ -3,7 +3,7 @@ body {
 }
 
 .expenseChart {
-    margin: 0 auto;
+    margin: 0 2px;
     margin-bottom: 15px;
     display: flex;
     background-color: white;
@@ -15,6 +15,7 @@ body {
 }
 
 .time {
+    width: 70px;
     margin-right: 10px;
     border: 1px solid white;
     border-radius: 8px;
@@ -35,13 +36,13 @@ body {
 }
 
 .time .day {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
 .expenseName {
-    width:80px;
-    padding-right: 40%;
+    width:160px;
+    /*padding-right: 20%;*/
     font-size: 1.5rem;
     font-weight: 600;
     color: black;
@@ -54,12 +55,13 @@ body {
 }
 
 .Price {
+    width: 100px;
     background: rgb(42, 172, 226);
     background: linear-gradient(161deg, rgba(42, 172, 226, 0.9) 0%, rgba(195, 105, 254, 0.9) 30%, rgba(215, 114, 226, 0.9) 59%, rgba(252, 149, 111, 0.9) 100%);
     border: 1px solid white;
     border-radius: 10px;
     padding: 8px 16px;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: white;
 }

@@ -4,7 +4,7 @@ function ExpenseItem(props) {
   let Dates = new Date(props.Date);
   let Year = Dates.getFullYear();
   let monthNum = Dates.getMonth();
-  let Day = Dates.getDay();
+  let Day = Dates.getDate();
   let Months = ["January", "February", "March", "April", "May", "June", "July" , "August" , "September" , "October" , "November"];
 console.log({Dates})
   return (
